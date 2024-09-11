@@ -1,0 +1,7 @@
+name: BasicAlts
+version: 1.0.0
+main: arrach\basicalts\Loader
+api: 5.0.0
+permissions:
+  basicalts.command:
+    default: op

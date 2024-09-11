@@ -1,4 +1,4 @@
-<?php
+6<?php
 
 namespace arrach\basicalts\listener;
 
@@ -21,15 +21,15 @@ class MainHandler implements Listener {
         $did = $datum['DeviceId'];
         $ssid = $datum['SelfSignedId'];
 
-        if($cid !== null || !empty($cid)){
+        if($cid !== null && !empty($cid)){
             $this->main->getAliasManager()->save($player, AliasMgr::CID, $cid);
         }
 
-        if($did !== null || !empty($did)){
+        if($did !== null && !empty($did)){
             $this->main->getAliasManager()->save($player, AliasMgr::DID, $did);
         }
 
-        if($ssid !== null || !empty($ssid)){
+        if($ssid !== null && !empty($ssid)){
             $this->main->getAliasManager()->save($player, AliasMgr::SSID, $ssid);
         }
     }

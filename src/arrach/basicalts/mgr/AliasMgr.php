@@ -19,14 +19,14 @@ final class AliasMgr  {
 
     public function __construct(){}
 
-    public function onEnable(): void    {
-        if(!is_dir(Loader::getInstance()->getDataFolder() . 'alts')) {
-            @mkdir(Loader::getInstance()->getDataFolder() .  'alts');
+    public function onEnable(Loader $main): void    {
+        if(!is_dir($main->getDataFolder() . 'alts')) {
+            @mkdir($main->getDataFolder() .  'alts');
         }
 
-        $this->cidConfig = new Config(Loader::getInstance()->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::CID . ".yml", Config::YAML);
-        $this->didConfig = new Config(Loader::getInstance()->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::DID . ".yml", Config::YAML);
-        $this->ssidConfig = new Config(Loader::getInstance()->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::SSID . ".yml", Config::YAML);
+        $this->cidConfig = new Config($main->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::CID . ".yml", Config::YAML);
+        $this->didConfig = new Config($main->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::DID . ".yml", Config::YAML);
+        $this->ssidConfig = new Config($main->getDataFolder() . "alts" . DIRECTORY_SEPARATOR . self::SSID . ".yml", Config::YAML);
 
         $this->aliases[self::CID] = $this->cidConfig->getAll();
         $this->aliases[self::DID] = $this->didConfig->getAll();

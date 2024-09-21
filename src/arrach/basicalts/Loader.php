@@ -19,7 +19,7 @@ final class Loader extends PluginBase {
 
     protected function onEnable(): void    {
         $this->alias_manager = new AliasMgr;
-        $this->alias_manager->onEnable();
+        $this->alias_manager->onEnable($this);
 
         new MainHandler($this);
         new AltsCommand($this);
